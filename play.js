@@ -7,6 +7,8 @@ const { connect } = require("./client.js");
 const { setupInput } = require("./input.js");
 
 console.log("Connecting ...");
-connect();
+let con = connect(); //connect() returns an object that can be used to interact with the server
+// the object returned by connect() should be passed into setupInput()
 
-setupInput()
+setupInput(con) /* setupInput() places a reference to that object in another 
+variable connection which is in a global scope of that module */
