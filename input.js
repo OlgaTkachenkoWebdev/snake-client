@@ -23,6 +23,15 @@ const setupInput = function (conn) {
     if (key === 'd') {
       conn.write("Move: right");
     }
+    if (key === 'i') {
+      conn.write("Say: I AM THE DANGER");
+    }
+    if (key === 'o') {
+      conn.write("Say: gotta go fast");
+    }
+    if (key === 'p') {
+      conn.write("Say: I AM THE ONE WHO NOX");
+    }
   };
 
   process.stdin.on('data', handleUserInput);
