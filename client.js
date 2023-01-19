@@ -7,7 +7,12 @@ const connect = function () {
   });
 
   conn.on("data", (data) => { // recieves and prints out data from the server
-    console.log(data)
+    console.log(data);
+  });
+
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server");
+    conn.write("Name: BUP")
   });
   // interpret incoming data as text
   conn.setEncoding("utf8");
