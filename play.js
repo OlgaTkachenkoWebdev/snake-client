@@ -1,25 +1,12 @@
-const net = require("net");
+// "Move: up" - move up one square (unless facing down)
+// "Move: down" - move down one square (unless facing up)
+// "Move: left" - move left one square (unless facing right)
+// "Move: right" - move left one square (unless facing left)
 // establishes a connection with the game server
 const { connect } = require("./client.js");
-
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-
-  const handleUserInput = function (key) {
-    if (key === '\u0003') {
-      process.exit();
-    }
-  };
-
-  process.stdin.on('data', handleUserInput);
-
-  return stdin;
-};
-
-setupInput()
+const { setupInput } = require("./input.js");
 
 console.log("Connecting ...");
 connect();
+
+setupInput()
